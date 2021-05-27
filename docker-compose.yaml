@@ -8,5 +8,12 @@ services:
       - "5432:5432"
     volumes:
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+  angular-ui:
+    build:
+        context: ../UI
+        dockerfile: Dockerfile
+    ports:
+        - "4201:4201"
+    container_name: UI-Supermarket
 volumes:
   database-data: # named volumes can b
